@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="b-content">
+	<div class="b-head">
+		<h1 class="b-head__title">Анкета второй Школы разработки интерфейсов в Москве</h1>
+	</div>
+	<div class="b-body">
+
+	</div>
+</div>
+
+<script type="text/x-handlebars-template" id="questions_template">
+	<form>
+		{{#each questions}}
+		<div class="b-question">
+			<div class="b-question__title b-question__toggle">Вопрос {{showNum @index}}</div>
+			<div class="b-question__content u-hide b-question__toggler">
+				<div class="b-question__question">{{{this.question}}}</div>
+				<div class="b-question__answer">
+					{{setIndex @index}}
+					{{#each radio}}
+					    <label><input type="radio" name="answer_{{../mainIndex}}" value="{{this.value}}">{{this.text}}</label><br>
+					{{else}}
+					<textarea name="answer_{{showNum @index}}">
+					</textarea>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		{{/each}}
+		<div class="b-submit">
+			<input type="submit" value="Отправить" class="b-submit__btn">
+		</div>
+	</form>
+</script>
+<script src="js/vendor/jquery-1.9.1.min.js"></script>
+<script src="js/vendor/handlebars.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
